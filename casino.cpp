@@ -3,6 +3,7 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
 
 /* Strategies used in the simulation. Each one of the players plays according
  * to one of these strategies. Since no order is given for the players we
