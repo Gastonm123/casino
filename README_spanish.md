@@ -15,10 +15,11 @@ Cada jugador tiene un papelito adonde va anotando sus apuestas. Cuando comienza,
 
 1 - 2 - 3 - 4
 
-Para apostar suma los nros. de los extremos y apuesta (en este caso apuesta 1 + 4 = 5). Si gana, anota lo que ganó en el final de la línea (5), mientras que si pierde, tacha los dos nros. de los extremos (1 y 4). Para la siguiente apuesta vuelve a apostar la suma de los extremos. Ojo que lo que se anota es la ganancia y no lo que te paga la banca (ahí está tu apuesta más la ganancia). Entonces:
+Para apostar suma los nros. de los extremos y apuesta (en este caso apuesta 1 + 4 = 5). Si gana, anota lo que ganó en el final de la línea (5), mientras que si pierde, tacha los dos nros. de los extremos (1 y 4). Para la siguiente apuesta vuelve a apostar la suma de los extremos. Ojo que lo que se anota es la ganancia y no lo que te paga la banca (ahí está tu apuesta más la ganancia).
 
-Si ganó le quedaría: 1 - 2 - 3 - 4 - 5 (la próxima apuesta sería 1 + 5 = 6)
-Si perdió quedaría: 2 - 3 (la próxima apuesta sería 2 + 3 = 5)
+Entonces:
+- Si ganó le quedaría: 1 - 2 - 3 - 4 - 5 (la próxima apuesta sería 1 + 5 = 6)
+- Si perdió quedaría: 2 - 3 (la próxima apuesta sería 2 + 3 = 5)
 
 Si en algún momento se queda sin nros. en la fila, vuelve al principio y anota 1 - 2 - 3 - 4. Y si en algún momento supera el máximo de la mesa, lo mismo. O sea que si la suma te da más de 4.000, hay que volver a poner 1 - 2 - 3 - 4 y apostar 5.  Lo mismo si en algún momento le queda un número menor al mínimo. Si llegara a quedarle un único número, esa es su apuesta (siempre y cuando no supere el máximo permitido).
 
@@ -39,7 +40,3 @@ Hay que tener en cuenta que cada uno de los jugadores lleva un papelito individu
 Se supone que estos 6 jugadores juegan en equipo, por lo tanto habría que hacer una simulación de 10.000 tiradas de ruleta y al final hacer un balance sumando ganancias y pérdidas de los 6, para ver si terminaron ganando, perdiendo o si salieron con la misma plata que entraron.
 
 A los fines prácticos vamos a suponer que los jugadores tienen dinero infinito, o sea que nunca van a dejar de apostar porque se quedaron sin guita.
-
-Estaria bueno mostrar la secuencia con la apuesta de cada jugador y el número que salió. Al terminar la simulacion se tiene que mostrar el balance final después de las 10.000 apuestas. Se puede elegir volcar los resultados en un archivo o en la pantalla.
-
-El código debe estar documentado en inglés.

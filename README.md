@@ -1,45 +1,42 @@
-# Reglas de la ruleta
+# Roulette Rules
 
-- En la ruleta hay 37 números, del 0 al 36.
-- Dentro de las posibles apuestas, nos vamos a centrar en las llamadas apuestas simples (pares y nones; rojos y negros; mayores y menores). En la ruleta hay 18 números pares y 18 impares; 18 rojos y 18 negros; 18 mayores y 18 menores. No hace falta que te aclare cuáles son pares e impares. :-) Los menores van del 1 al 18 y los mayores del 19 al 36. Los rojos y negros los podés ver acá: http://es.wikipedia.org/wiki/Ruleta#mediaviewer/Archivo:Roulette_frz.png
-- El 0 (cero) es un nro. especial que no es par, impar, rojo, negro, mayor ni menor. O sea, si sale el cero y vos apostaste a cualquiera de las apuestas simples: perdiste!
-- Al acertar en una apuesta simple la banca paga el doble de la cantidad apostada.
+- In roulette there are 37 numbers, from 0 to 36.
+- Within the possible bets, we are going to focus on the so-called simple bets (even and odd, red and black, high and low). In roulette there are 18 even and 18 odd numbers; 18 red and 18 black; 18 older and 18 younger. It is not necessary that I clarify which are even and odd. :-) The low ones go from 1 to 18 and the high ones from 19 to 36. You can see the red and black ones here: http://es.wikipedia.org/wiki/Ruleta#mediaviewer/Archivo:Roulette_frz.png
+- 0 (zero) is a special number that is not even, odd, red, black, high or low. That is, if zero comes up and you bet on any of the simple bets: you lost!
+- When hitting a simple bet, the bank pays double the amount bet.
 
-Para la simulación vamos a suponer lo siguiente:
-- La apuesta mínima de la mesa es 5.
-- La apuesta máxima de la mesa es 4.000.
+For the simulation we will assume the following:
+- The minimum bet of the table is 5.
+- The maximum bet of the table is 4,000.
 
-# Forma de apostar
+# Way to bet
 
-Cada jugador tiene un papelito adonde va anotando sus apuestas. Cuando comienza, su libreta dice:
+Each player has a piece of paper where they write down their bets. When each player starts, their notebook says:
 
 1 - 2 - 3 - 4
 
-Para apostar suma los nros. de los extremos y apuesta (en este caso apuesta 1 + 4 = 5). Si gana, anota lo que ganó en el final de la línea (5), mientras que si pierde, tacha los dos nros. de los extremos (1 y 4). Para la siguiente apuesta vuelve a apostar la suma de los extremos. Ojo que lo que se anota es la ganancia y no lo que te paga la banca (ahí está tu apuesta más la ganancia). Entonces:
+To bet add the numbers at the ends and bet (in this case bet 1 + 4 = 5). If you win, write down what you won at the end of the line (5), while if you lose, cross out the two numbers of the extremes (1 and 4). For the next bet, bet the sum of the extremes again. Note that what is recorded is the profit and not what the bank pays you (that is your bet plus the profit).
 
-Si ganó le quedaría: 1 - 2 - 3 - 4 - 5 (la próxima apuesta sería 1 + 5 = 6)
-Si perdió quedaría: 2 - 3 (la próxima apuesta sería 2 + 3 = 5)
+Then:
+- If the player won, he would have: 1 - 2 - 3 - 4 - 5 (the next bet would be 1 + 5 = 6)
+- If the player lost it would be: 2 - 3 (the next bet would be 2 + 3 = 5)
 
-Si en algún momento se queda sin nros. en la fila, vuelve al principio y anota 1 - 2 - 3 - 4. Y si en algún momento supera el máximo de la mesa, lo mismo. O sea que si la suma te da más de 4.000, hay que volver a poner 1 - 2 - 3 - 4 y apostar 5.  Lo mismo si en algún momento le queda un número menor al mínimo. Si llegara a quedarle un único número, esa es su apuesta (siempre y cuando no supere el máximo permitido).
+If at any time the player runs out of numbers in the queue, go back to the beginning and write down 1 - 2 - 3 - 4. And if it ever goes over the table max, same thing. In other words, if the sum gives you more than 4,000, you have to put 1 - 2 - 3 - 4 again and bet 5. The same if at any time you have a number less than the minimum. If you only have one number left, that is your bet (as long as it does not exceed the maximum allowed).
 
-# Simulacion
+# Simulation
 
-La idea es hacer un programa que simule a 6 personas jugando simultáneamente en la misma mesa, donde cada uno apuesta siempre a lo mismo (uno a rojo, otro a negro, otro a mayor, etc.). También hay que simular la ruleta usando el random de la PC (no es lo ideal, pero es lo más simple que tenemos). O sea, vos tendrías que simular la secuencia completa:
-- El jugador A apuesta a rojo.
-- El jugador B apuesta a negro.
-- El jugador C apuesta a mayor.
-- El jugador D apuesta a menor.
-- El jugador E apuesta a par.
-- El jugador F apuesta a impar.
-- Gira la ruleta, sale un nro.
-- Se paga a cada jugador según corresponda.
-- Se vuelve al principio con las nuevas apuestas.
-Hay que tener en cuenta que cada uno de los jugadores lleva un papelito individual y sus apuestas son independientes unas de otras (cuando gana rojo, pierde negro y por lo tanto la apuesta siguiente seguramente será distinta).
+The idea is to make a program that simulates 6 people playing simultaneously at the same table, where each one always bets on the same thing (one on red, another on black, another on higher, etc.). You also have to simulate roulette using PC random (not ideal, but the simplest we have). That is, you would have to simulate the complete sequence:
+- Player A bets on red.
+- Player B bets on black.
+- Player C bets higher.
+- Player D bets to minor.
+- Player E bets even.
+- Player F bets on odd.
+- Spin the wheel, a number comes out.
+- Each player is paid accordingly.
+- Return to the beginning with the new bets.
+It must be taken into account that each of the players carries an individual piece of paper and their bets are independent of each other (when red wins, black loses and therefore the next bet will surely be different).
 
-Se supone que estos 6 jugadores juegan en equipo, por lo tanto habría que hacer una simulación de 10.000 tiradas de ruleta y al final hacer un balance sumando ganancias y pérdidas de los 6, para ver si terminaron ganando, perdiendo o si salieron con la misma plata que entraron.
+These 6 players are supposed to play as a team, therefore a simulation of 10,000 roulette spins would have to be done and at the end, make a balance by adding the wins and losses of the 6, to see if they ended up winning, losing or if they came out with the same money that came in
 
-A los fines prácticos vamos a suponer que los jugadores tienen dinero infinito, o sea que nunca van a dejar de apostar porque se quedaron sin guita.
-
-Estaria bueno mostrar la secuencia con la apuesta de cada jugador y el número que salió. Al terminar la simulacion se tiene que mostrar el balance final después de las 10.000 apuestas. Se puede elegir volcar los resultados en un archivo o en la pantalla.
-
-El código debe estar documentado en inglés.
+For practical purposes we are going to assume that the players have infinite money, that is, they will never stop betting because they ran out of money.
