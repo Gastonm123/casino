@@ -89,7 +89,7 @@ int main() {
   srand(time(0));
 
   const int NUMBER_PLAYERS = 6;
-  const int NUMBER_ITERATIONS = 10;
+  const int NUMBER_ITERATIONS = 10000;
   Player players[NUMBER_PLAYERS];
 
   vector<int> red_numbers({1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27,
