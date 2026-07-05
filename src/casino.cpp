@@ -18,7 +18,7 @@ int main()
 {
     srand(time(0));
 
-    const std::vector<NormalPlayer> players = {
+    std::vector<NormalPlayer> players = {
         NormalPlayer(alwaysRed, MIN_BET, MAX_BET),
         NormalPlayer(alwaysBlack, MIN_BET, MAX_BET),
         NormalPlayer(alwaysOdd, MIN_BET, MAX_BET),
@@ -27,22 +27,34 @@ int main()
         NormalPlayer(alwaysLow, MIN_BET, MAX_BET),
     };
 
+    std::vector<std::pair<NormalBet,int>> bets(players.size());
 
     for (int iteration = 0; iteration < NUMBER_ITERATIONS; iteration++)
     {
-        unsigned spin = rand() % 37;
+        std::cout << "Iteration: " << iteration+1 << "\n";
 
-        std::cout << "Iteration number: " << iteration << "\tRoullete number: " << spin;
-        std::cout << "\tBets: ";
-        for (NormalPlayer p : players) {
+        // take the bets
+        for (int playerI = 0; playerI < players.size(); ++playerI) {
             NormalBet bet;
             int betAmount;
-            p.bet(&bet, &betAmount);
+            players[playerI].bet(&bet, &betAmount);
+            bets[playerI] = std::make_pair(bet,betAmount);
+        }
+        std::cout << "Bets taken!\n";
 
+        // spin the wheel
+        unsigned spin = rand() % 37;
+        std::cout << "Wheel landed on " << spin << "\n";
+
+        std::cout << "Updating players\n";
+        for (int playerI = 0; playerI < players.size(); ++playerI) {
+            auto& [bet,betAmount] = bets[playerI];
             if (bet.isSelected(spin)) {
-                p.win();
+                players[playerI].win();
+                // do something with the bet amount
             } else {
-                p.lose();
+                players[playerI].lose();
+                // do something with the bet amount
             }
         }
     }
@@ -58,7 +70,7 @@ int main()
     for (NormalPlayer p : players)
     {
         int balance = p.balance();
-        std::cout << "Player " << playerI << " balance: " << balance << std::endl;
+        std::cout << "Player " << playerI+1 << " balance: " << balance << std::endl;
         playerI += 1;
         total += balance;
     }
