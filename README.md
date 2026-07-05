@@ -1,4 +1,35 @@
-# Roulette Rules
+# Roulette Challenge
+
+Spin the roullete N times and record the winnings or losings of each players.
+
+## Compile
+
+To compile run
+
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+## Design
+
+The design includes bets, players and annotations (aka. paper). Each player records his
+loses and wins updating his balance and also his annotations. If the player is about to
+bet an amount that is lower or higher than the minimum or maximum, respectively, then he
+restarts his annotations. The implementation of the annotations may vary so we abstract
+the details in an object.
+
+Each player has a diferent strategy that we model as a function of bets with respect to
+time. And a bet is nothing more than a subset of positions in the board. We chose to model
+this with a selector function, which returns true in the positions of the subset. This is
+a performance optimization because some subsets can be checked more efficiently with a
+function than by iterating over a list.
+
+## Challenge
+
+### Roulette Rules
 
 - In roulette there are 37 numbers, from 0 to 36.
 - Within the possible bets, we are going to focus on the so-called simple bets (even and odd, red and black, high and low). In roulette there are 18 even and 18 odd numbers; 18 red and 18 black; 18 older and 18 younger. It is not necessary that I clarify which are even and odd. :-) The low ones go from 1 to 18 and the high ones from 19 to 36. You can see the red and black ones here: http://es.wikipedia.org/wiki/Ruleta#mediaviewer/Archivo:Roulette_frz.png
@@ -9,7 +40,7 @@ For the simulation we will assume the following:
 - The minimum bet of the table is 5.
 - The maximum bet of the table is 4,000.
 
-# Way to bet
+### Way to bet
 
 Each player has a piece of paper where they write down their bets. When each player starts, their notebook says:
 
@@ -23,7 +54,7 @@ Then:
 
 If at any time the player runs out of numbers in the queue, go back to the beginning and write down 1 - 2 - 3 - 4. And if it ever goes over the table max, same thing. In other words, if the sum gives you more than 4,000, you have to put 1 - 2 - 3 - 4 again and bet 5. The same if at any time you have a number less than the minimum. If you only have one number left, that is your bet (as long as it does not exceed the maximum allowed).
 
-# Simulation
+### Simulation
 
 The idea is to make a program that simulates 6 people playing simultaneously at the same table, where each one always bets on the same thing (one on red, another on black, another on higher, etc.). You also have to simulate roulette using PC random (not ideal, but the simplest we have). That is, you would have to simulate the complete sequence:
 - Player A bets on red.
